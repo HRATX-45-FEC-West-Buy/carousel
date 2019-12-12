@@ -31,14 +31,13 @@ const Price = styled.p`
   height: 35px;
 `;
 
-
-const ProductItem = props => (
+const AlsoBoughtItem = props => (
   <React.Fragment>
-    <Image src={props.productItem.image}></Image>
-    <Name>{props.productItem.name}</Name>
+    <Image src={props.alsoBoughtItem.image}></Image>
+    <Name><a href={`/${props.alsoBoughtItem.id}`}>{props.alsoBoughtItem.name}</a></Name>
     <div id="star-placeholder">STAR PLACEHOLDER</div>
-    <Price>{props.productItem.price}</Price>
+    <Price>{props.alsoBoughtItem.price}</Price>
   </React.Fragment>
 );
 
-export default ProductItem;
+export default AlsoBoughtItem;
