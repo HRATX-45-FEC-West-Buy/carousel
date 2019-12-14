@@ -19,10 +19,13 @@ class App extends React.Component {
     super();
     this.state = {
       alsoBoughtItems: [],
-      mostViewedItems: []
+      mostViewedItems: [],
+      currentPage: 1,
+      totalPages: 2
     };
     this.getAlsoBoughtProducts = this.getAlsoBoughtProducts.bind(this);
     this.getMostViewedProducts = this.getMostViewedProducts.bind(this);
+    this.handleCurrentPage = this.handleCurrentPage.bind(this);
   };
 
   componentDidMount() {
@@ -31,11 +34,12 @@ class App extends React.Component {
   };
 
   getAlsoBoughtProducts() {
-    axios.get('/products')
+    axios.get('http://westbuycarousel-env.8mbhtr3m3h.us-east-2.elasticbeanstalk.com/products')
     .then(response => {
       this.setState({
         alsoBoughtItems: response.data
       })
+      console.log(this.state.alsoBoughtItems);
     })
     .catch(error => {
       console.log(error);
@@ -43,7 +47,7 @@ class App extends React.Component {
   };
 
   getMostViewedProducts() {
-    axios.get('/products')
+    axios.get('http://westbuycarousel-env.8mbhtr3m3h.us-east-2.elasticbeanstalk.com/products')
     .then(response => {
       this.setState({
         mostViewedItems: response.data
@@ -52,6 +56,19 @@ class App extends React.Component {
     .catch(error => {
       console.log(error);
     })
+  };
+
+  // Function to increment/decrement this.state.currentPage
+  handleCurrentPage(direction) {
+    if (direction === "left") {
+      this.setState({
+        currentPage: 1
+      });
+    } else if (direction === "right") {
+      this.setState({
+        currentPage: 2
+      });
+    };
   };
 
   render() {
@@ -66,10 +83,21 @@ class App extends React.Component {
 
     return (
       <div>
-        <Carousel title="People also bought">
+        <Carousel
+          title="People also bought"
+          handleCurrentPage={this.handleCurrentPage}
+          currentPage={this.state.currentPage}
+          totalPages={this.state.totalPages}
+          // stock={this.alsoBoughtItems.stock}
+        >
           {alsoBoughtItem}
         </Carousel>
-        <Carousel title="Most-viewed products">
+        <Carousel
+          title="Most-viewed products"
+          handleCurrenPage={this.handleCurrentPage}
+          currentPage={this.state.currentPage}
+          totalPages={this.state.totalPages}
+        >
           {mostViewedItem}
         </Carousel>
       </div>

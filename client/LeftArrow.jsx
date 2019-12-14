@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 
 import Arrows from './Arrows.jsx';
+import GrayArrows from './GrayArrows.jsx';
 
 const LeftArrowContainer = styled.div`
   grid-area: l;
@@ -13,12 +14,27 @@ const LeftArrowContainer = styled.div`
   place-items: center;
 `;
 
-const LeftArrow = (props) => (
-  <LeftArrowContainer>
-    <Arrows onClick={props.prevSlide}>
-      <FontAwesomeIcon icon={faChevronLeft} />
-    </Arrows>
-  </LeftArrowContainer>
-);
+const LeftArrow = (props) => {
+  if (props.currentPage === 1) {
+    return (
+      <LeftArrowContainer>
+        <GrayArrows>
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </GrayArrows>
+      </LeftArrowContainer>
+    );
+  } else {
+    return (
+      <LeftArrowContainer>
+        <Arrows onClick={() => {
+          props.prevSlide();
+          props.handleCurrentPage("left");
+        }}>
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </Arrows>
+      </LeftArrowContainer>
+    );
+  }
+};
 
 export default LeftArrow;

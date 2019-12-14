@@ -8,6 +8,7 @@ import Wrapper from './Wrapper.jsx';
 import LeftArrow from './LeftArrow.jsx';
 import RightArrow from './RightArrow.jsx';
 import CartButton from './CartButton.jsx';
+import Counter from './Counter.jsx';
 
 // TO DO:  Add all styled components to a HelperComponents.jsx file
 const Title = styled.h2`
@@ -21,18 +22,6 @@ const Title = styled.h2`
   min-height: 54px;
   padding: 15px 0;
   width: 83.33%;
-`;
-
-const HeaderPageTracker = styled.div`
-  box-sizing: border-box;
-  color: rgb(4, 12, 19);
-  float: right;
-  font-family: Human BBY Web, Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  line-height: normal;
-  margin: 24px 0 0 0;
-  text-align: right;
-  width: 16.67%;
 `;
 
 const Border = styled.div`
@@ -50,13 +39,22 @@ class Carousel extends React.Component{
       position: 0,
       sliding: false,
       direction: 'next'
+      // rightClicked: false,
+      // leftClicked: false
     };
 
     this.getOrder = this.getOrder.bind(this);
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
     this.doSliding = this.doSliding.bind(this);
+    // this.rightArrowClick = this.rightArrowClick.bind(this);
+    // this.leftArrowClick = this.leftArrowClick.bind(this);
   };
+
+  // componentDidMount() {
+  //   this.state.rightClicked;
+  //   this.state.leftClicked;
+  // };
 
   /* Takes the DOM index of an item (its initial position on the page) and returns
   the place it should appear in. */
@@ -92,7 +90,7 @@ class Carousel extends React.Component{
     const {children} = this.props;
     const numItems = children.length || 1;
 
-    this.doSliding('next', position === numItems - 1 ? 0 : position + 1);
+    this.doSliding('next', position === numItems - 1 ? 0 : position + 5);
   };
 
   // Go to the previous slide.
@@ -101,8 +99,21 @@ class Carousel extends React.Component{
     const {children} = this.props;
     const numItems = children.length;
 
-    this.doSliding('prev', position === 0 ? numItems - 1 : position - 1);
+    this.doSliding('prev', position === 0 ? numItems - 1 : position - 5);
   };
+
+  // rightArrowClick() {
+  //   this.setState({
+  //     rightClicked: !this.state.rightClicked
+  //   });
+  // };
+
+  // leftArrowClick() {
+  //   this.setState({
+  //     leftClicked: !this.state.leftClicked
+  //   });
+  //   console.log(this.state.leftClicked);
+  // };
 
   render() {
     const {title, children} = this.props;
@@ -112,21 +123,39 @@ class Carousel extends React.Component{
       <div>
         <Title>{title}</Title>
 
-        {/* TO DO: Make HeaderPageTracker dynamic based on number of items retrieved. */}
-        <HeaderPageTracker>Page <b>1</b> of <b>2</b></HeaderPageTracker>
+        <Counter
+          currentPage={this.props.currentPage}
+          totalPages={this.props.totalPages}
+        >
+        </Counter>
 
         <Wrapper>
           <Border></Border>
-          <LeftArrow prevSlide={this.prevSlide}></LeftArrow>
+
+          <LeftArrow
+            prevSlide={this.prevSlide}
+            handleCurrentPage={this.props.handleCurrentPage}
+            currentPage={this.props.currentPage}
+            totalPages={this.props.totalPages}
+          >
+          </LeftArrow>
+
             <CarouselContainer sliding={sliding} direction={direction}>
               {children.map((child, index) => (
                 <CarouselSlot key={index} order={this.getOrder(index)}>
                   {child}
-                  <CartButton />
+                  {/* <CartButton stock={this.props.stock}/> */}
                 </CarouselSlot>
-              ))}
+              ))};
             </CarouselContainer>
-          <RightArrow nextSlide={this.nextSlide}></RightArrow>
+
+          <RightArrow
+            nextSlide={this.nextSlide}
+            handleCurrentPage={this.props.handleCurrentPage}
+            currentPage={this.props.currentPage}
+            totalPages={this.props.totalPages}
+          >
+          </RightArrow>
         </Wrapper>
       </div>
     );
