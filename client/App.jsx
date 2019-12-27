@@ -4,33 +4,24 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import Carousel from './Carousel.jsx';
-import AlsoBoughtItem from './ProductItem.jsx';
+import AlsoBoughtItem from './AlsoBoughtItem.jsx';
 import MostViewedItem from './MostViewedItem.jsx';
-
-const Item = styled.div`
-  background: blue;
-  text-align: center;
-  padding: 50px;
-  color: yellow;
-`;
+import Sizing from './Sizing.jsx';
+import mostViewedProducts from './MostViewedProductsData.js';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       alsoBoughtItems: [],
-      mostViewedItems: [],
-      currentPage: 1,
-      totalPages: 2
+      mostViewedItems: mostViewedProducts
     };
     this.getAlsoBoughtProducts = this.getAlsoBoughtProducts.bind(this);
-    this.getMostViewedProducts = this.getMostViewedProducts.bind(this);
-    this.handleCurrentPage = this.handleCurrentPage.bind(this);
   };
 
   componentDidMount() {
     this.getAlsoBoughtProducts();
-    this.getMostViewedProducts();
+    this.state.mostViewedItems;
   };
 
   getAlsoBoughtProducts() {
@@ -39,36 +30,10 @@ class App extends React.Component {
       this.setState({
         alsoBoughtItems: response.data
       })
-      console.log(this.state.alsoBoughtItems);
     })
     .catch(error => {
       console.log(error);
     })
-  };
-
-  getMostViewedProducts() {
-    axios.get('http://westbuycarousel-env.8mbhtr3m3h.us-east-2.elasticbeanstalk.com/products')
-    .then(response => {
-      this.setState({
-        mostViewedItems: response.data
-      })
-    })
-    .catch(error => {
-      console.log(error);
-    })
-  };
-
-  // Function to increment/decrement this.state.currentPage
-  handleCurrentPage(direction) {
-    if (direction === "left") {
-      this.setState({
-        currentPage: 1
-      });
-    } else if (direction === "right") {
-      this.setState({
-        currentPage: 2
-      });
-    };
   };
 
   render() {
@@ -79,28 +44,15 @@ class App extends React.Component {
     let mostViewedItem = this.state.mostViewedItems.map(product => <MostViewedItem key={product.id}
     mostViewedItem={product} />);
 
-    // <div id = ${productId}-star-placeholder></div>
-
     return (
-      <div>
-        <Carousel
-          title="People also bought"
-          handleCurrentPage={this.handleCurrentPage}
-          currentPage={this.state.currentPage}
-          totalPages={this.state.totalPages}
-          // stock={this.alsoBoughtItems.stock}
-        >
+      <Sizing>
+        <Carousel title="People also bought">
           {alsoBoughtItem}
         </Carousel>
-        <Carousel
-          title="Most-viewed products"
-          handleCurrenPage={this.handleCurrentPage}
-          currentPage={this.state.currentPage}
-          totalPages={this.state.totalPages}
-        >
+        <Carousel title="Most-viewed products">
           {mostViewedItem}
         </Carousel>
-      </div>
+      </Sizing>
     );
   };
 };

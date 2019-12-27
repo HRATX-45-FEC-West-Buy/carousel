@@ -8,13 +8,14 @@ const Image = styled.img`
   width: 100px;
   height: 100px;
   display: block;
-  margin: auto;
+  margin: 0 0 0 25px;
   object-fit: scale-down;
 `;
 
 const Name = styled.p`
   box-sizing: border-box;
-  color: rgb(0, 30, 115);
+  width: 80%;
+  color: blue;
   font-family: Human BBY Web, Arial, Helvetica, sans-serif;
   font-size: 13px;
   max-height: 48px;
@@ -33,12 +34,23 @@ const Price = styled.p`
 `;
 
 const AlsoBoughtItem = props => {
+
+  let starsId = props.alsoBoughtItem.id;
+
+  let productId = '/products/' + props.alsoBoughtItem.id;
+
   if (props.alsoBoughtItem.stock === 0) {
     return (
       <React.Fragment>
-        <Image src={props.alsoBoughtItem.image}></Image>
-        <Name><a href={`/${props.alsoBoughtItem.id}`}>{props.alsoBoughtItem.name}</a></Name>
-        <div id="star-placeholder">STAR PLACEHOLDER</div>
+        <a href={productId}>
+          <Image src={props.alsoBoughtItem.image}></Image>
+        </a>
+        <Name>
+          <a href={productId}>
+            {props.alsoBoughtItem.name}
+          </a>
+        </Name>
+        <div className="stars-carousel" id={starsId}></div>
         <Price>{props.alsoBoughtItem.price}</Price>
         <ClickedButton>Sold Out</ClickedButton>
       </React.Fragment>
@@ -46,9 +58,15 @@ const AlsoBoughtItem = props => {
   } else {
     return (
       <React.Fragment>
-        <Image src={props.alsoBoughtItem.image}></Image>
-        <Name style={{width: "80%"}}><a href={`/${props.alsoBoughtItem.id}`}>{props.alsoBoughtItem.name}</a></Name>
-        <div id="star-placeholder">STAR PLACEHOLDER</div>
+        <a href={productId}>
+          <Image src={props.alsoBoughtItem.image}></Image>
+        </a>
+        <Name>
+          <a href={productId}>
+            {props.alsoBoughtItem.name}
+          </a>
+        </Name>
+        <div className="stars-carousel" id={starsId}></div>
         <Price>{props.alsoBoughtItem.price}</Price>
         <CartButton></CartButton>
       </React.Fragment>
@@ -57,3 +75,12 @@ const AlsoBoughtItem = props => {
 };
 
 export default AlsoBoughtItem;
+
+// <a
+//   href={`/${props.alsoBoughtItem.id}`}
+//   style={{
+//     "text-decoration": "none",
+//     "color": "blue"
+//
+//   }}
+// >

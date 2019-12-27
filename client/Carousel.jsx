@@ -9,6 +9,7 @@ import LeftArrow from './LeftArrow.jsx';
 import RightArrow from './RightArrow.jsx';
 import CartButton from './CartButton.jsx';
 import Counter from './Counter.jsx';
+import Sizing from './Sizing.jsx';
 
 // TO DO:  Add all styled components to a HelperComponents.jsx file
 const Title = styled.h2`
@@ -38,23 +39,17 @@ class Carousel extends React.Component{
     this.state = {
       position: 0,
       sliding: false,
-      direction: 'next'
-      // rightClicked: false,
-      // leftClicked: false
+      direction: 'next',
+      currentPage: 1,
+      totalPages: 2
     };
 
     this.getOrder = this.getOrder.bind(this);
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
     this.doSliding = this.doSliding.bind(this);
-    // this.rightArrowClick = this.rightArrowClick.bind(this);
-    // this.leftArrowClick = this.leftArrowClick.bind(this);
+    this.handleCurrentPage = this.handleCurrentPage.bind(this);
   };
-
-  // componentDidMount() {
-  //   this.state.rightClicked;
-  //   this.state.leftClicked;
-  // };
 
   /* Takes the DOM index of an item (its initial position on the page) and returns
   the place it should appear in. */
@@ -102,61 +97,60 @@ class Carousel extends React.Component{
     this.doSliding('prev', position === 0 ? numItems - 1 : position - 5);
   };
 
-  // rightArrowClick() {
-  //   this.setState({
-  //     rightClicked: !this.state.rightClicked
-  //   });
-  // };
-
-  // leftArrowClick() {
-  //   this.setState({
-  //     leftClicked: !this.state.leftClicked
-  //   });
-  //   console.log(this.state.leftClicked);
-  // };
+  // Function to increment/decrement this.state.currentPage
+  handleCurrentPage(direction) {
+    if (direction === "left") {
+      this.setState({
+        currentPage: 1
+      });
+    } else if (direction === "right") {
+      this.setState({
+        currentPage: 2
+      });
+    };
+  };
 
   render() {
     const {title, children} = this.props;
     const {sliding, direction, position} = this.state;
 
     return (
-      <div>
-        <Title>{title}</Title>
+      <div style={{"width": "100%"}}>
+          <Title>{title}</Title>
 
-        <Counter
-          currentPage={this.props.currentPage}
-          totalPages={this.props.totalPages}
-        >
-        </Counter>
-
-        <Wrapper>
-          <Border></Border>
-
-          <LeftArrow
-            prevSlide={this.prevSlide}
-            handleCurrentPage={this.props.handleCurrentPage}
-            currentPage={this.props.currentPage}
-            totalPages={this.props.totalPages}
+          <Counter
+            currentPage={this.state.currentPage}
+            totalPages={this.state.totalPages}
           >
-          </LeftArrow>
+          </Counter>
 
-            <CarouselContainer sliding={sliding} direction={direction}>
-              {children.map((child, index) => (
-                <CarouselSlot key={index} order={this.getOrder(index)}>
-                  {child}
-                  {/* <CartButton stock={this.props.stock}/> */}
-                </CarouselSlot>
-              ))};
-            </CarouselContainer>
+          <Wrapper>
+            <Border></Border>
 
-          <RightArrow
-            nextSlide={this.nextSlide}
-            handleCurrentPage={this.props.handleCurrentPage}
-            currentPage={this.props.currentPage}
-            totalPages={this.props.totalPages}
-          >
-          </RightArrow>
-        </Wrapper>
+            <LeftArrow
+              prevSlide={this.prevSlide}
+              handleCurrentPage={this.handleCurrentPage}
+              currentPage={this.state.currentPage}
+              totalPages={this.state.totalPages}
+            >
+            </LeftArrow>
+
+              <CarouselContainer sliding={sliding} direction={direction}>
+                {children.map((child, index) => (
+                  <CarouselSlot key={index} order={this.getOrder(index)}>
+                    {child}
+                  </CarouselSlot>
+                ))};
+              </CarouselContainer>
+
+            <RightArrow
+              nextSlide={this.nextSlide}
+              handleCurrentPage={this.handleCurrentPage}
+              currentPage={this.state.currentPage}
+              totalPages={this.state.totalPages}
+            >
+            </RightArrow>
+          </Wrapper>
       </div>
     );
   };

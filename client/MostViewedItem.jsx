@@ -2,12 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 import CartButton from './CartButton.jsx';
+import ClickedButton from './ClickedButton.jsx';
 
 const Image = styled.img`
   width: 100px;
   height: 100px;
   display: block;
-  margin: auto;
+  margin: 0 0 0 25px;
   object-fit: scale-down;
 `;
 
@@ -31,13 +32,44 @@ const Price = styled.p`
   height: 35px;
 `;
 
-const MostViewedItem = props => (
-  <React.Fragment>
-    <Image src={props.mostViewedItem.image}></Image>
-    <Name><a href={`/${props.mostViewedItem.id}`}>{props.mostViewedItem.name}</a></Name>
-    <div id="star-placeholder">STAR PLACEHOLDER</div>
-    <Price>{props.mostViewedItem.price}</Price>
-  </React.Fragment>
-);
+const MostViewedItem = props => {
+  let starsId = props.mostViewedItem.id;
+
+  let productId = '/products/' + props.mostViewedItem.id;
+
+  if (props.mostViewedItem.stock === 0) {
+    return (
+      <React.Fragment>
+        <a href={productId}>
+          <Image src={props.mostViewedItem.image}></Image>
+        </a>
+        <Name>
+          <a href={productId}>
+            {props.mostViewedItem.name}
+          </a>
+        </Name>
+        <div className="stars-carousel" id={starsId}></div>
+        <Price>{props.mostViewedItem.price}</Price>
+        <ClickedButton>Sold Out</ClickedButton>
+      </React.Fragment>
+    );
+  } else {
+    return (
+      <React.Fragment>
+        <a href={productId}>
+          <Image src={props.mostViewedItem.image}></Image>
+        </a>
+        <Name>
+          <a href={productId}>
+            {props.mostViewedItem.name}
+          </a>
+        </Name>
+        <div className="stars-carousel" id={starsId}></div>
+        <Price>{props.mostViewedItem.price}</Price>
+        <CartButton></CartButton>
+      </React.Fragment>
+    );
+  }
+};
 
 export default MostViewedItem;
