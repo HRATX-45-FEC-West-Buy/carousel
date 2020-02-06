@@ -38,13 +38,13 @@ graphic that was rendered across multiple services via a proxy server.
     <td>AWS RDS PLACEHOLDER</td>
   </tr>
   <tr>
-    <td>STYLED-COMPONENTS PLACEHOLDER</td>
+    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/styled-components.jpg" alt="styled-components"></td>
     <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/expressjs.png" alt="Express"></td>
     <td>AWS S3 PLACEHOLDER</td>
   </tr>
   <tr>
     <td></td>
-    <td>MYSQL PLACEHOLDER</td>
+    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/mysql.png" alt="MySQL"></td>
     <td></td>
   </tr>
 </table>
