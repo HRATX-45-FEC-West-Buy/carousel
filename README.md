@@ -33,18 +33,18 @@ graphic that was rendered across multiple services via a proxy server.
     <th>Deployment</th>
   </tr>
   <tr>
-    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/react.png" alt="React"></td>
-    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/nodejs.png" alt="Node.js" style="width:60%"></td>
+    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/react.png" alt="React" width="60px"></td>
+    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/nodejs.png" alt="Node.js" width="60px"></td>
     <td>AWS RDS PLACEHOLDER</td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/styled-components.jpg" alt="styled-components"></td>
-    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/expressjs.png" alt="Express"></td>
+    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/styled-components.jpg" alt="styled-components" width="60px"></td>
+    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/expressjs.png" alt="Express" width="60px"></td>
     <td>AWS S3 PLACEHOLDER</td>
   </tr>
   <tr>
     <td></td>
-    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/mysql.png" alt="MySQL"></td>
+    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/mysql.png" alt="MySQL" width="60px"></td>
     <td></td>
   </tr>
 </table>
