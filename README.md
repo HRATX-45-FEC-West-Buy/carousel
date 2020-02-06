@@ -17,7 +17,7 @@ West Buy employs service-oriented architecture, combining five microservices int
 one application.  Additionally, the team created a components library for a stars
 graphic that was rendered across multiple services via a proxy server.
 
-[ INSERT GIFS HERE ]
+![alt text](https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/WestBuy.gif "West Buy Product Page")
 
 ### Related Microservices
 * [Accordion Drawers](https://github.com/HRATX-45-FEC-West-Buy/accordion-drawers)
