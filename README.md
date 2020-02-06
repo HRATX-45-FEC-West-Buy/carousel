@@ -34,17 +34,17 @@ graphic that was rendered across multiple services via a proxy server.
   </tr>
   <tr>
     <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/react.png" alt="React" width="60px"></td>
-    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/nodejs.png" alt="Node.js" width="60px"></td>
-    <td>AWS RDS PLACEHOLDER</td>
+    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/nodejs.png" alt="Node.js" width="80px"></td>
+    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/rds.png" alt="AWS RDS" width="80px"></td>
   </tr>
   <tr>
     <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/styled-components.jpg" alt="styled-components" width="60px"></td>
-    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/expressjs.png" alt="Express" width="60px"></td>
-    <td>AWS S3 PLACEHOLDER</td>
+    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/expressjs.png" alt="Express" width="80px"></td>
+    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/s3.png" alt="AWS S3" width="80px"></td>
   </tr>
   <tr>
     <td></td>
-    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/mysql.png" alt="MySQL" width="60px"></td>
+    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/mysql.png" alt="MySQL" width="80px"></td>
     <td></td>
   </tr>
 </table>
@@ -66,7 +66,7 @@ npm run start-oh
 ```
 
 ### Deployment:
-1. Compress the webpack file prior to uploading it into an AWS S3 bucket for deployment
+1. Compress the bundle prior to uploading it into an AWS S3 bucket for deployment
 with the additional microservices via the proxy server:
 ```
 npm run build
