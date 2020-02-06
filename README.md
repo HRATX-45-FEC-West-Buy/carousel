@@ -28,13 +28,13 @@ graphic that was rendered across multiple services via a proxy server.
 ## Stack
 <table>
   <tr>
-    <th>Front-End</th>
-    <th>Back-End</th>
+    <th>Front End</th>
+    <th>Back End</th>
     <th>Deployment</th>
   </tr>
   <tr>
     <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/react.png" alt="React"></td>
-    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/nodejs.png" alt="Node.js"></td>
+    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/nodejs.png" alt="Node.js" style="width:60%"></td>
     <td>AWS RDS PLACEHOLDER</td>
   </tr>
   <tr>
@@ -48,3 +48,8 @@ graphic that was rendered across multiple services via a proxy server.
     <td></td>
   </tr>
 </table>
+
+## Getting Started
+
+## West Buy Team
+[Jonathan Diaz](https://github.com/JCDiaz1201), [Natalia Malesa](https://github.com/nmalesa), [David Silva](https://github.com/davidsilva2841), [Collin Snyder](https://github.com/Collin-Snyder), [Ish Tahir](https://github.com/ishtahir)
