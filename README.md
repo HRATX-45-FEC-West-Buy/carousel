@@ -33,12 +33,12 @@ graphic that was rendered across multiple services via a proxy server.
     <th>Deployment</th>
   </tr>
   <tr>
-    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/react.png" alt="React" width="60px"></td>
+    <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/react.png" alt="React" width="80px"></td>
     <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/nodejs.png" alt="Node.js" width="80px"></td>
     <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/rds.png" alt="AWS RDS" width="80px"></td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/styled-components.jpg" alt="styled-components" width="60px"></td>
+    <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/styled-components.jpg" alt="styled-components" width="80px"></td>
     <td><img src="https://github.com/hratx-blue-ocean/Alcove/blob/master/client/dist/assets/stack_images/expressjs.png" alt="Express" width="80px"></td>
     <td><img src="https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/s3.png" alt="AWS S3" width="80px"></td>
   </tr>
