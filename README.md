@@ -10,7 +10,7 @@ independently of one another.
 The carousel is styled using the CSS-in-JS styled-components library.  The animations
 are rendered using CSS transforms.
 
-[ INSERT GIFS HERE ]
+![alt text](https://raw.githubusercontent.com/nmalesa/carousel/master/dist/assets/westbuy-carousel.gif "West Buy Carousel")
 
 ## Full West Buy Application
 West Buy employs service-oriented architecture, combining five microservices into
@@ -50,6 +50,27 @@ graphic that was rendered across multiple services via a proxy server.
 </table>
 
 ## Getting Started
+
+### Development:
+1. Install the required dependencies:
+```
+npm install
+```
+2. Initiate the server listening on either specified port or port 3000 (default):
+```
+npm run server_start
+```
+3.  Run webpack:
+```
+npm run start-oh
+```
+
+### Deployment:
+1. Compress the webpack file prior to uploading it into an AWS S3 bucket for deployment
+with the additional microservices via the proxy server:
+```
+npm run build
+```
 
 ## West Buy Team
 [Jonathan Diaz](https://github.com/JCDiaz1201), [Natalia Malesa](https://github.com/nmalesa), [David Silva](https://github.com/davidsilva2841), [Collin Snyder](https://github.com/Collin-Snyder), [Ish Tahir](https://github.com/ishtahir)

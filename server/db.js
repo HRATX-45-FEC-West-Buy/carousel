@@ -1,10 +1,11 @@
 const mysql = require('mysql');
+require('dotenv').config();
 
 const connection = mysql.createConnection({
-  host: 'db-carousel.chpmnqo9n8lu.us-east-2.rds.amazonaws.com',
+  host: process.env.DB_HOST,
   port: 3306,
-  user: 'root',
-  password: 'password',
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
   database: 'inventory'
 });
 
