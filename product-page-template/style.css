@@ -1,0 +1,137 @@
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+}
+header {
+  background: yellow;
+  text-align: center;
+  border-bottom: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+}
+nav {
+  background: #b5d8f6;
+  text-align: center;
+  border-bottom: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+}
+aside {
+ background: pink;
+ text-align: center;
+}
+footer {
+  background: #98ff98;
+  text-align: center;
+  border-top: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+}
+/** BEGIN GRID CLASSSES **/
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+  "h h h h h h h h h h h h"
+  "m m m m m m m m m m m m"
+  "n n n n n p p p p p a a"
+  "i i i i i p p p p p a a"
+  "s s s s s s s s s s s s"
+  "r r r r r r r r r r r r"
+  "c c c c c c c c c c c c"
+  "d d d d d d d d d d d d"
+  "v v v v v v v v v v v v"
+  "b b b b b b b b b b b b"
+  "o o o o o o o o o o o o"
+  "f f f f f f f f f f f f";
+}
+.header {
+  grid-area: h;
+  /* h for header */
+}
+.menu {
+  grid-area: m;
+  /* m for menu */
+}
+.product-name {
+  background: #d3ffce;
+  text-align: center;
+  border-bottom: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+  grid-area: n;
+  /* n for name */
+}
+.product-info {
+  background: #be29ec;
+  text-align: center;
+  border-left: solid;
+  border-right: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+  grid-area: p;
+  /* p for product */
+}
+.sidebar {
+  grid-area: a;
+  /* s for aside */
+}
+.product-image {
+  background: #ee4035;
+  text-align: center;
+  grid-area: i;
+  /* i for image */
+}
+.specs {
+  background: #7bc043;
+  text-align: center;
+  border-top: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+  grid-area: s;
+  /* s for specs */
+}
+.recommendations {
+  background:  #a2798f;
+  text-align: center;
+  border-top: solid;
+  border-bottom: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+  grid-area: r;
+  /* r for recommended items */
+}
+#people-two {
+  background: pink;
+  text-align: center;
+  border-bottom: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+  grid-area: c;
+  /* c for other customers */
+}
+.dropdowns {
+  background: #0392cf;
+  text-align: center;
+  grid-area: d;
+  /* d for dropdowns */
+}
+.recently-viewed {
+  background: #f47835;
+  text-align: center;
+  border-top: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+  grid-area: v;
+  /* v for viewed */
+}
+#people-three {
+  background: pink;
+  text-align: center;
+  border-top: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+  grid-area: b;
+  /* b for bought */
+}
+.most-viewed {
+  background: #d41243;
+  text-align: center;
+  border-top: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+  grid-area: o;
+  /* o for mOst-viewed spOnsored prOducts */
+}
+.footer {
+  grid-area: f;
+  /* f for footer */
+}
