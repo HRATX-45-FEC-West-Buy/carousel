@@ -14,9 +14,10 @@ class App extends React.Component {
     super();
     this.state = {
       alsoBoughtItems: [],
-      mostViewedItems: mostViewedProducts
+      mostViewedItems: []
     };
     this.getAlsoBoughtProducts = this.getAlsoBoughtProducts.bind(this);
+    this.getMostViewedProducts = this.getMostViewedProducts.bind(this);
   };
 
   componentDidMount() {
@@ -29,6 +30,18 @@ class App extends React.Component {
     .then(response => {
       this.setState({
         alsoBoughtItems: response.data
+      })
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  };
+
+  getMostViewedProducts {
+    axios.get('http://westbuycarousel-env.8mbhtr3m3h.us-east-2.elasticbeanstalk.com/views')
+    .then(response => {
+      this.setState({
+        mostViewedItems: response.data
       })
     })
     .catch(error => {

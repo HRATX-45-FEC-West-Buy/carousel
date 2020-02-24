@@ -11,8 +11,8 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-const retrieveRandomProducts = callback => {
-  connection.query('SELECT * FROM products WHERE id!=57 AND id!=46 AND id!=39 AND id!=53 AND id!=26 AND id!=100 AND id!=14 AND id!=60 AND id!=66 AND id!=95 ORDER BY RAND() LIMIT 10', (error, results) => {
+const retrieveSimilarProducts = callback => {
+  connection.query('SELECT * FROM products WHERE category= ORDER BY RAND() LIMIT 10', (error, results) => {
     if (error) {
       callback(error, null);
     } else {
@@ -21,4 +21,14 @@ const retrieveRandomProducts = callback => {
   });
 };
 
-module.exports = {connection, retrieveRandomProducts};
+const retrieveTopTen = callback => {
+  connection.query('SELECT * FROM products ORDER BY views DESC LIMIT 10', (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+module.exports = {connection, retrieveSimilarProducts, retrieveTopTen};

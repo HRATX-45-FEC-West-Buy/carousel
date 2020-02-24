@@ -9,5 +9,6 @@ CREATE TABLE products (
   category VARCHAR(25),
   name TEXT,
   price TEXT,
-  image TEXT
+  image TEXT,
+  views INT
 );
