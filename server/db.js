@@ -11,8 +11,8 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-const retrieveSimilarProducts = callback => {
-  connection.query('SELECT * FROM products WHERE category= ORDER BY RAND() LIMIT 10', (error, results) => {
+const retrieveSimilarProducts = (itemId, callback) => {
+  connection.query('SELECT * FROM products WHERE category=(SELECT category FROM products WHERE id=?) ORDER BY RAND() LIMIT 10', [itemId], (error, results) => {
     if (error) {
       callback(error, null);
     } else {

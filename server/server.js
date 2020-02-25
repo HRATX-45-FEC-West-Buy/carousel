@@ -11,7 +11,7 @@ app.use(express.static('dist'));
 app.use(express.urlencoded({extended: true}));
 
 app.get('/products', (req, res) => {
-  retrieveSimilarProducts((error, results) => {
+  retrieveSimilarProducts(req.body.itemId, (error, results) => {
     if (error) {
       // res.status(404).send('Database not found.');
       res.send(error);
