@@ -1,17 +1,18 @@
 const mysql = require('mysql');
+require('dotenv').config();
 
 const connection = mysql.createConnection({
-  host: 'db-carousel.chpmnqo9n8lu.us-east-2.rds.amazonaws.com',
+  host: process.env.DB_HOST,
   port: 3306,
-  user: 'root',
-  password: 'password',
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
   database: 'inventory'
 });
 
 connection.connect();
 
-const retrieveRandomProducts = callback => {
-  connection.query('SELECT * FROM products WHERE id!=57 AND id!=46 AND id!=39 AND id!=53 AND id!=26 AND id!=100 AND id!=14 AND id!=60 AND id!=66 AND id!=95 ORDER BY RAND() LIMIT 10', (error, results) => {
+const retrieveSimilarProducts = (itemId, callback) => {
+  connection.query('SELECT * FROM products WHERE category=(SELECT category FROM products WHERE id=?) ORDER BY RAND() LIMIT 10', [itemId], (error, results) => {
     if (error) {
       callback(error, null);
     } else {
@@ -20,4 +21,14 @@ const retrieveRandomProducts = callback => {
   });
 };
 
-module.exports = {connection, retrieveRandomProducts};
+const retrieveTopTen = callback => {
+  connection.query('SELECT * FROM products ORDER BY views DESC LIMIT 10', (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+module.exports = {connection, retrieveSimilarProducts, retrieveTopTen};

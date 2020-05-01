@@ -11,11 +11,19 @@ const Sizing = styled.div`
   padding-right: 30px !important;
   margin: 0 auto;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 480px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
     width: 100%;
   }
 
   @media screen and (min-width: 992px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1200px) {
     width: 100%;
   }
 `;

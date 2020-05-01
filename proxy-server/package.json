@@ -1,0 +1,24 @@
+{
+  "name": "nm-proxy-server",
+  "version": "1.0.0",
+  "description": "Master layout to link all teammates' modules.",
+  "main": "index.js",
+  "scripts": {
+    "server_start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmalesa/nm-proxy-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmalesa/nm-proxy-server/issues"
+  },
+  "homepage": "https://github.com/nmalesa/nm-proxy-server#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
