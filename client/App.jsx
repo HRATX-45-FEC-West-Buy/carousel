@@ -37,7 +37,7 @@ class App extends React.Component {
     })
   };
 
-  getMostViewedProducts {
+  getMostViewedProducts() {
     axios.get('http://westbuycarousel-env.8mbhtr3m3h.us-east-2.elasticbeanstalk.com/views')
     .then(response => {
       this.setState({
